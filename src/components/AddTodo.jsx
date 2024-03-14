@@ -8,8 +8,8 @@ function AddTodo ({ onAddTodo }) {
   return (
     <>
       <Button
-        className='fixed bottom-0 right-0 w-16 h-16 z-10'
-        color='primary'
+        className=' w-16 h-16 mx-auto'
+        color='secondary'
         radius='full'
         variant='shadow'
         isIconOnly
