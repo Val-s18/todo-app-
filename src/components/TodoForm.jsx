@@ -57,11 +57,11 @@ function TodoForm ({ todoToEdit, onSubmit, onClose }) {
         value={formData.status}
         defaultSelectedKeys={[formData.status]}
       >
-        <SelectItem key='Todo' value='Todo' textValue='Todo'>todo</SelectItem>
-        <SelectItem key='In-Progress' value='In-Progress' textValue='In-Progress'>In-Progress</SelectItem>
-        <SelectItem key='Done' value='Done' textValue='Done'>Done</SelectItem>
-        <SelectItem key='Canceled' value='Canceled' textValue='Canceled'>Canceled</SelectItem>
-        <SelectItem key='Archived' value='Archived' textValue='Archived'>Archived</SelectItem>
+        <SelectItem key='TODO' value='Todo' textValue='TODO'>todo</SelectItem>
+        <SelectItem key='IN-PROGRESS' value='IN-PROGRESS' textValue='In-Progress'>In-Progress</SelectItem>
+        <SelectItem key='DONE' value='Done' textValue='DONE'>Done</SelectItem>
+        <SelectItem key='CANCELED' value='Canceled' textValue='CANCELED'>Canceled</SelectItem>
+        <SelectItem key='ARCHIVED' value='Archived' textValue='ARCHIVED'>Archived</SelectItem>
       </Select>
       <Switch
         label='Important'

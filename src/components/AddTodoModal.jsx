@@ -4,6 +4,7 @@ import { useTodos } from '../hooks/todosHook'
 
 function AddTodoModal ({ todoToEdit, isOpen, onOpen, onOpenChange }) {
   const { addTodo, updateTodo } = useTodos()
+
   const handleSubmit = (formData, id = null) => {
     if (id) {
       // C'est une modification
@@ -12,7 +13,7 @@ function AddTodoModal ({ todoToEdit, isOpen, onOpen, onOpenChange }) {
         _id: id
       })
     } else {
-      // C'est un ajoutv
+      // C'est un ajout
       addTodo(formData)
     }
   }

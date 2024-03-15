@@ -4,11 +4,11 @@ import { useAuth } from '../hooks/authHook'
 
 function LoginForm () {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: 'test@test.fr',
+    password: '123456789'
   })
 
-  const { login, authData, logout } = useAuth()
+  const { login } = useAuth()
 
   const handlechange = (event) => {
     setFormData({
@@ -49,13 +49,10 @@ function LoginForm () {
       >
         Se connecter
       </Button>
-      <pre>
+      {/* <pre>
         {JSON.stringify(authData, null, 2)}
-      </pre>
+      </pre> */}
 
-      <Button color='danger' onPress={logout}>
-        Se déconnecter
-      </Button>
     </form>
 
   )

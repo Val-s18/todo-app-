@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
 import { apiAddTodo, apiDeleteTodo, apiGetTodos, apiUpdateTodo } from '../services/Api'
 import { useBetween } from 'use-between'
+import { useAuth } from './authHook'
 
 function useTodos () {
   const [todos, setTodo] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
+
+  const { authData } = useAuth()
 
   const getData = useCallback(async () => {
     try {
@@ -55,7 +58,7 @@ function useTodos () {
 
   useEffect(() => {
     getData()
-  }, [])
+  }, [authData])
 
   return {
     todos,

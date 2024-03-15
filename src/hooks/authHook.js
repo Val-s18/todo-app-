@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useBetween } from 'use-between'
 import { apiLogin } from '../services/Api'
+import { toast } from 'react-toastify'
 
 function useAuth () {
   const [authData, setAuthData] = useState()
@@ -12,6 +13,10 @@ function useAuth () {
       setLoading(true)
       const response = await apiLogin(credentials)
       setAuthData(response)
+      console.log(response)
+      if (response && response.token && response._user) {
+        toast.success('vous etes connecté')
+      }
       window.localStorage.setItem('AUTH', JSON.stringify(response))
     } catch (error) {
       console.error(error)
@@ -22,18 +27,22 @@ function useAuth () {
 
   const logout = useCallback(() => {
     setAuthData(null)
-    window.localStorage.clear()
+    toast.error('vous etes déco')
   }, [])
 
   useEffect(() => {
-    const saveAuth = window.localStorage.getItem('AUTH')
-    if (saveAuth) {
-      setAuthData(JSON.parse(saveAuth))
+    const savedAuth = window.localStorage.getItem('AUTH')
+    if (savedAuth) {
+      setAuthData(JSON.parse(savedAuth))
     }
   }, [])
 
   useEffect(() => {
-    window.localStorage.setItem('AUTH', JSON.stringify(authData))
+    if (authData) {
+      window.localStorage.setItem('AUTH', JSON.stringify(authData))
+    } else {
+      window.localStorage.removeItem('AUTH')
+    }
   }, [authData])
 
   return { authData, loading, error, login, logout }

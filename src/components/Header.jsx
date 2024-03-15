@@ -1,19 +1,6 @@
 import { Image } from '@nextui-org/react'
 import Avatar from './Avatar'
 
-// demander comment ça fonctionne pour mettre plusieur donner dans mon header pour mon atome name
-
-// const data = [
-//   {
-//     name: 'Todo'
-//   },
-//   {
-//     name: 'Valentin'
-
-//   }
-
-// ]
-
 function header () {
   return (
     <div className='flex justify-between bg-secondary items-center'>

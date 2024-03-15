@@ -1,5 +1,4 @@
 import TodoList from '../components/TodoList'
-import Title from '../components/Title'
 import AddTodo from '../components/AddTodo'
 import { Navbar } from '@nextui-org/react'
 import { useTodos } from '../hooks/todosHook'
@@ -9,7 +8,7 @@ function Todos () {
   return (
     <>
       {/* <Clock interval='1000' /> */}
-      <Title />
+
       <TodoList
         todos={todos}
       />

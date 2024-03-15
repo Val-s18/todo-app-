@@ -11,6 +11,14 @@ function TodoList ({ todos }) {
     setTodoToEdit(todo)
     onOpen()
   }
+
+  if (!todos || todos.length < 1) {
+    return (
+      <div className='w-)full flex flex-row items-center justify-center py-6'>
+        <h2 className='font-semibold text-xl'> Aucun Todo 🐙 </h2>
+      </div>
+    )
+  }
   return (
     <>
 
