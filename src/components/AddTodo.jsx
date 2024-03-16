@@ -1,5 +1,5 @@
 import { Button, useDisclosure } from '@nextui-org/react'
-import { FaPlusCircle } from 'react-icons/fa'
+import { FaPlus } from 'react-icons/fa6'
 import AddTodoModal from './AddTodoModal'
 
 function AddTodo ({ onAddTodo }) {
@@ -8,14 +8,13 @@ function AddTodo ({ onAddTodo }) {
   return (
     <>
       <Button
-        className=' w-16 h-16 mx-auto'
+        className=' fixed  bottom-0 right-0 w-16 h-16 m-4 '
         color='secondary'
         radius='full'
-        variant='shadow'
         isIconOnly
         onClick={onOpen}
       >
-        <FaPlusCircle
+        <FaPlus
           color='white'
           size={35}
         />

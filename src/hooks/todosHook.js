@@ -15,44 +15,54 @@ function useTodos () {
       setLoading(true)
       const todosData = await apiGetTodos()
       setTodo(todosData)
-      setLoading(false)
     } catch (error) {
       console.error(error)
       setError(error)
+      setLoading(false)
+    } finally {
       setLoading(false)
     }
   }, [])
 
   const addTodo = useCallback(async (todo) => {
     try {
+      setLoading(true)
       const todosData = await apiAddTodo(todo)
       setTodo(todosData)
     } catch (error) {
       console.error(error)
       setError(error)
       setLoading(false)
+    } finally {
+      setTimeout(() => setLoading(false), 100)
     }
   }, [])
 
   const deleteTodo = useCallback(async (id) => {
     try {
+      setLoading(true)
       const todosData = await apiDeleteTodo(id)
       setTodo(todosData)
     } catch (error) {
       console.error(error)
       setError(error)
       setLoading(false)
+    } finally {
+      setTimeout(() => setLoading(false), 100)
     }
   }, [])
 
   const updateTodo = useCallback(async (todo) => {
     try {
+      setLoading(true)
       const todosData = await apiUpdateTodo(todo)
       setTodo(todosData)
     } catch (error) {
       console.error(error)
       setError(error)
       setLoading(false)
+    } finally {
+      setTimeout(() => setLoading(false), 100)
     }
   }, [])
 
