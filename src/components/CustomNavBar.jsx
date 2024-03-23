@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button, Dropdown, DropdownTrigger, Avatar, DropdownMenu, DropdownItem, AvatarIcon } from '@nextui-org/react'
 import { useAuth } from '../hooks/authHook'
 import menuboard from '../assets/menuboard.svg'
+import SearchBar from './Searchbar'
 
 function CustomNavbar () {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -10,7 +11,7 @@ function CustomNavbar () {
   const isLoggedIn = authData?.token && authData?._user
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar className='flex items-center' onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -21,14 +22,14 @@ function CustomNavbar () {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className='hidden sm:flex gap-4' justify='center'>
+      <NavbarContent className='hidden lg:flex gap-4' justify='center'>
         <NavbarItem>
           <Link color='foreground' href='/'>
             Todos
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href='/auth' aria-current='page'>
+          <Link href='/auth' className='text-violet-400' caria-current='page'>
             Auth
           </Link>
         </NavbarItem>
@@ -37,6 +38,7 @@ function CustomNavbar () {
         isLoggedIn
           ? (
             <NavbarContent as='div' justify='end'>
+              <SearchBar />
               <Dropdown placement='bottom-end'>
                 <DropdownTrigger>
                   <Avatar
@@ -67,8 +69,8 @@ function CustomNavbar () {
                 <Link href='/auth'>Login</Link>
               </NavbarItem>
               <NavbarItem>
-                <Button color='primary' href='#' variant='flat'>
-                  <Link href='/inscription'>Sign up </Link>
+                <Button color='secondary' href='#'>
+                  <Link href='/inscription' className='text-white'>Sign up </Link>
                 </Button>
               </NavbarItem>
             </NavbarContent>
@@ -77,7 +79,7 @@ function CustomNavbar () {
       <NavbarMenu>
         <NavbarMenuItem>
           <Link
-            color='foreground'
+            color='secondary'
             className='w-full'
             href='/'
             size='lg'
@@ -87,10 +89,11 @@ function CustomNavbar () {
         </NavbarMenuItem>
         <NavbarMenuItem>
           <Link
-            color='foreground'
+            color='secondary'
             className='w-full'
             href='/auth'
             size='lg'
+
           >
             Auth
           </Link>

@@ -14,34 +14,39 @@ function TodoList ({ todos }) {
 
   if (!todos || todos.length < 1) {
     return (
-      <div className='w-)full flex flex-row items-center justify-center '>
+      <div className='w-full flex items-center justify-center  '>
         <h2 className='font-semibold text-xl'> Aucun Todo 🐙 </h2>
       </div>
     )
   }
+
   return (
     <>
+      <div className=' lg:flex justify-center w-full '>
+        <div className='flex flex-col w-full lg:flex-row gap-3 overflow-visibility  flex-wrap justify-center '>
 
-      <div className='flex flex-col lg:flex-row gap-4 py-2 px-4 '>
+          {todos.map((todo) => {
+            return (
 
-        {todos.map((todo) => {
-          return (
+              <Todo
+                key={todo._id}
+                todo={todo}
+                openEditModal={handleOpenEditModal}
+              />
 
-            <Todo
-              key={todo._id}
-              todo={todo}
-              openEditModal={handleOpenEditModal}
-            />
+            )
+          })}
+        </div>
 
-          )
-        })}
+        <AddTodoModal
+          isOpen={isOpen}
+          onOpen={onOpen}
+          onOpenChange={onOpenChange}
+          todoToEdit={todoToEdit}
+        />
+
       </div>
-      <AddTodoModal
-        isOpen={isOpen}
-        onOpen={onOpen}
-        onOpenChange={onOpenChange}
-        todoToEdit={todoToEdit}
-      />
+
     </>
 
   )

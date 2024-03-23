@@ -23,7 +23,7 @@ function App () {
           <Route element={<ProtectedRoute />}>
             <Route index path='/' element={<Todos />} />
           </Route>
-          <Route index path='inscription' element={<Inscription />} />
+          <Route index path='/inscription' element={<Inscription />} />
           <Route index path='/auth' element={<Auth />} />
         </Routes>
       </BrowserRouter>

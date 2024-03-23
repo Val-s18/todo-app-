@@ -15,7 +15,10 @@ function Auth () {
   return (
     <>
 
-      <h1> Connexion </h1>
+      <h1
+        className='font-bold flex justify-center m-8 mt-32 text-4xl text-violet-800'
+      > Connexion
+      </h1>
       <LoginForm />
 
     </>

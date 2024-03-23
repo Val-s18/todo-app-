@@ -1,14 +1,15 @@
 import { Button, Input } from '@nextui-org/react'
 import { useState } from 'react'
-import { useAuth } from '../hooks/authHook'
+import { useSignUp } from '../hooks/SignUpHook'
 
-function LoginForm () {
+function SignUp () {
   const [formData, setFormData] = useState({
+    // firstName: 'va',
     email: 'test@test.fr',
     password: '123456789'
   })
 
-  const { login } = useAuth()
+  const { signUp } = useSignUp()
 
   const handlechange = (event) => {
     setFormData({
@@ -17,16 +18,31 @@ function LoginForm () {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    login(formData)
+    try {
+      await signUp(formData)
+      window.location.href = '/' // Redirection vers la page d'accueil après inscription réussie
+    } catch (error) {
+      console.error(error)
+    }
   }
+
   return (
     <>
       <form
-        className='flex flex-col  gap-7 pr-10 pl-10 '
+        className='flex flex-col gap-7 pr-10 pl-10'
         onSubmit={handleSubmit}
       >
+        {/* <Input
+          name='firstname'
+          type='text'
+          label='Firstname'
+          variant='flat'
+          onChange={handlechange}
+          value={formData.firstName}
+        /> */}
+
         <Input
           name='email'
           type='email'
@@ -44,22 +60,21 @@ function LoginForm () {
           onChange={handlechange}
           value={formData.password}
         />
+
         <Button
           type='Submit'
           color='secondary'
           size='md'
         >
-          Se connecter
+          S'inscrire
         </Button>
-
         {/* <pre>
-        {JSON.stringify(authData, null, 2)}
-      </pre> */}
+          {JSON.stringify(SignData, null, 2)}
+        </pre> */}
 
       </form>
-
     </>
   )
 }
 
-export default LoginForm
+export default SignUp

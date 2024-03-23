@@ -39,12 +39,17 @@ async function apiLogin (credentials) {
   const reponse = await api.post('/auth/login', credentials)
   return reponse.data
 }
+async function apiSignUp (credentials) {
+  const reponse = await api.post('/inscription/inscription', credentials)
+  return reponse.data
+}
 
 export {
   apiDeleteTodo,
   apiAddTodo,
   apiUpdateTodo,
   apiGetTodos,
-  apiLogin
+  apiLogin,
+  apiSignUp
 
 }
