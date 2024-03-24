@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import SignUp from '../components/SignUp'
 import { useEffect } from 'react'
 import { useSignUp } from '../hooks/SignUpHook'
+import CardReseaux from '../components/CardReseaux'
 
 function inscription () {
   const navigate = useNavigate()
@@ -17,6 +18,7 @@ function inscription () {
     <>
       <h1 className='font-bold flex justify-center m-8 mt-32 text-4xl text-violet-800'> Inscription </h1>
       <SignUp signUp={(credentials) => signUp(credentials, navigate)} />
+      <CardReseaux />
 
     </>
 

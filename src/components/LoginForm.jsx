@@ -4,8 +4,8 @@ import { useAuth } from '../hooks/authHook'
 
 function LoginForm () {
   const [formData, setFormData] = useState({
-    email: 'test@test.fr',
-    password: '123456789'
+    email: '',
+    password: ''
   })
 
   const { login } = useAuth()

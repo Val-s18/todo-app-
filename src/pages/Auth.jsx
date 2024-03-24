@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import LoginForm from '../components/LoginForm'
 import { useEffect } from 'react'
 import { useAuth } from '../hooks/authHook'
+import CardReseaux from '../components/CardReseaux'
 
 function Auth () {
   const navigate = useNavigate()
@@ -20,6 +21,7 @@ function Auth () {
       > Connexion
       </h1>
       <LoginForm />
+      <CardReseaux />
 
     </>
 

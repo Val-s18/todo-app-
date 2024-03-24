@@ -5,8 +5,8 @@ import { useSignUp } from '../hooks/SignUpHook'
 function SignUp () {
   const [formData, setFormData] = useState({
     // firstName: 'va',
-    email: 'test@test.fr',
-    password: '123456789'
+    email: '',
+    password: ''
   })
 
   const { signUp } = useSignUp()

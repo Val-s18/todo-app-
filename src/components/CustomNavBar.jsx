@@ -27,11 +27,7 @@ function CustomNavbar () {
           <Link color='foreground' href='/'>
             Todos
           </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href='/auth' className='text-violet-400' caria-current='page'>
-            Auth
-          </Link>
+
         </NavbarItem>
       </NavbarContent>
       {
@@ -65,13 +61,15 @@ function CustomNavbar () {
             )
           : (
             <NavbarContent justify='end'>
-              <NavbarItem className='hidden lg:flex'>
-                <Link href='/auth'>Login</Link>
-              </NavbarItem>
+              <NavbarItem className='hidden lg:flex ' />
               <NavbarItem>
-                <Button color='secondary' href='#'>
-                  <Link href='/inscription' className='text-white'>Sign up </Link>
+                <Button variant='' href='#'>
+                  <Link href='/auth' className='text-secondary-600'>Login </Link>
                 </Button>
+                <Button color='secondary' href='#'>
+                  <Link href='/inscription' className='text-white'>Sign Up </Link>
+                </Button>
+
               </NavbarItem>
             </NavbarContent>
             )
@@ -95,7 +93,17 @@ function CustomNavbar () {
             size='lg'
 
           >
-            Auth
+            Login
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link
+            color='secondary'
+            className='w-full'
+            href='/inscription'
+            size='lg'
+          >
+            Sign Up
           </Link>
         </NavbarMenuItem>
       </NavbarMenu>
